@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>karchh karo</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        body{
+            background-color:slategray;
+
+        }
+        .n1
+        {
+            background-color:black;
+            font: italic;
+            position: relative;
+             height: 50px;
+            font-size: 29px;
+            color:ivory;
+            font-style: oblique;
+            padding-top: 15px;
+            padding-left:20px;
+            position:relative;
+            display: flex;
+            flex-wrap: wrap;
+            
+        }
+        .n2{
+            height: 20px;
+            color:ivory;
+          padding-bottom:0px;
+          position: absolute; 
+          top: 0;
+          background-color:black;
+            font: italic;
+        width: 1600px;
+        padding-left: 90px;
+        height: 30px;
+        padding-top: 20px;
+        font-size: 50px;
+        padding-bottom: 30px;
+        margin-left: 20px;
+        }
+        .n4{
+            flex-direction:row;
+            width: 250px;
+            height: 20px;
+            padding-left: 30px;
+            background-color:silver;
+            color: black
+        }
+        .n7{
+            flex-direction:row;
+            width: 250px;
+            height: 20px;
+            padding-left: 25px;
+            background-color:silver;
+            color: black
+            }
+            .n9{
+            background-color:darkslategrey;
+            color: honeydew;
+
+        }
+        .na1{
+            color: darkgrey;
+            font-style: oblique;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="n2">XPERS</div>
+  
+    <h1 id="outputel" ></h1>
+    <input  type="text"  placeholder="ENTER AMMOUNT" id="textammount"  class="n4">
+    
+    
+     <input type="text" placeholder="ENTER TEXT" id="textdesc" class="n7">
+    <button id="addexpence" class="n9">add</button>
+    <div id="expencetable"></div>
+    <h3 id="allexpencetabel"></h3>
+    <script>
+                    let totalexpence=0;
+                    const headingel=document.querySelector("#outputel");
+                    const tableel=document.querySelector("#expencetable");
+                    const tabel=document.querySelector("#allexpencetabel")
+                    headingel.textContent=totalexpence;
+                    const inputelement=document.querySelector("#textdesc")
+                    const allexpence=[];
+                    function addincrement()
+                        {
+                            const expence={}
+                   const inputel=document.querySelector("#textammount");
+             
+                   const textammount=inputel.value;
+                   const inputammount=parseInt(textammount,10);
+                    totalexpence=totalexpence+inputammount;
+                     textel=inputelement.value;
+                     expence.text=textel;
+                     expence.amount=inputammount;
+                     allexpence.push(expence);
+                     const sometext=`The total expence of this month is:${totalexpence}` 
+                     headingel.textContent=sometext;
+                     const allexpencehtml=allexpence.map(expence=>{
+                         return `${expence.amount} :: ${expence.text}`;
+                         });
+
+                        const joinedallexpencehtml=allexpence.join("");
+                     
+                        //   const joinallexpence=allexpence.join();
+                          console.log(joinedallexpencehtml);
+                          tabel.textContent=allexpencehtml;
+                      allexpence.innerhtml=allexpencehtml;
+
+                        }
+                        const element=document.querySelector("#addexpence");
+                    // element.addEventListner("click",addincrement,false);
+                    element.addEventListener("click",addincrement,false);
+                </script>
+</body>
+</html>
